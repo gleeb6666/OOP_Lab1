@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MyExcelMAUIApp.Controls"
+             x:Class="MyExcelMAUIApp.MainPage">
+
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="Padding" Value="12,6" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,Auto,Auto,*" Padding="6" RowSpacing="4">
+
+        <FlexLayout x:Name="toolbar" Wrap="Wrap" AlignItems="Center">
+            <Button Text="Зберегти" Clicked="SaveButton_Clicked" />
+            <Button Text="Зберегти як…" Clicked="SaveAsButton_Clicked" />
+            <Button Text="Прочитати" Clicked="ReadButton_Clicked" />
+            <Button Text="Зберегти в Google Drive" Clicked="SaveToDriveButton_Clicked" />
+            <Button Text="Відкрити з Google Drive" Clicked="OpenFromDriveButton_Clicked" />
+            <Button Text="Порахувати" Clicked="CalculateButton_Clicked" />
+            <Button x:Name="modeButton" Clicked="ModeButton_Clicked" />
+            <Button Text="Додати рядок" Clicked="AddRowButton_Clicked" />
+            <Button Text="Видалити рядок" Clicked="DeleteRowButton_Clicked" />
+            <Button Text="Додати стовпчик" Clicked="AddColumnButton_Clicked" />
+            <Button Text="Видалити стовпчик" Clicked="DeleteColumnButton_Clicked" />
+            <Button Text="Довідка" Clicked="HelpButton_Clicked" />
+            <Button Text="Вийти" Clicked="ExitButton_Clicked" />
+        </FlexLayout>
+
+        <Grid Grid.Row="1" ColumnDefinitions="70,*" ColumnSpacing="6">
+            <Label x:Name="selectedCellLabel"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="Center" />
+            <Entry x:Name="formulaEntry"
+                   Grid.Column="1"
+                   IsEnabled="False"
+                   Placeholder="Оберіть клітинку та введіть вираз, наприклад: A1 + mmax(B1, 2^3)"
+                   Completed="FormulaEntry_Completed"
+                   Unfocused="FormulaEntry_Unfocused"
+                   TextChanged="FormulaEntry_TextChanged" />
+        </Grid>
+
+        <Label x:Name="statusLabel" Grid.Row="2" Margin="6,0" LineBreakMode="TailTruncation" />
+
+        <controls:SpreadsheetGridView x:Name="spreadsheetView" Grid.Row="3" />
+
+        <Grid x:Name="busyOverlay" Grid.Row="3" IsVisible="False" BackgroundColor="#33000000">
+            <ActivityIndicator IsRunning="True" WidthRequest="48" HeightRequest="48"
+                               HorizontalOptions="Center" VerticalOptions="Center" />
+        </Grid>
+    </Grid>
+</ContentPage>

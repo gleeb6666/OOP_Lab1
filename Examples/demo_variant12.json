@@ -1,0 +1,43 @@
+{
+  "format": "MyExcelMAUIApp.Spreadsheet",
+  "version": 1,
+  "rowCount": 50,
+  "columnCount": 20,
+  "cells": [
+    { "address": "A1", "expression": "10" },
+    { "address": "B1", "expression": "3" },
+    { "address": "C1", "expression": "A1 + B1 * 2" },
+    { "address": "D1", "expression": "(A1 + B1) * 2" },
+    { "address": "E1", "expression": "A1 / B1" },
+
+    { "address": "A2", "expression": "2^10" },
+    { "address": "B2", "expression": "2^3^2" },
+    { "address": "C2", "expression": "(2^3)^2" },
+    { "address": "D2", "expression": "2^100" },
+    { "address": "E2", "expression": "D2 * D2" },
+
+    { "address": "A3", "expression": "inc(A1)" },
+    { "address": "B3", "expression": "dec(B1)" },
+    { "address": "C3", "expression": "inc(dec(5))" },
+    { "address": "D3", "expression": "mmax(A1, B1, C1, 7)" },
+    { "address": "E3", "expression": "mmin(A1, B1, C1, 7)" },
+
+    { "address": "A4", "expression": "mmax(5)" },
+    { "address": "B4", "expression": "0 - A1" },
+    { "address": "C4", "expression": "mmin(B4, 0 - 3, 4)" },
+    { "address": "D4", "expression": "dec(0)" },
+    { "address": "E4", "expression": "C1 + mmax(A2, B2) - 1000" },
+
+    { "address": "A5", "expression": "A1 / 0" },
+    { "address": "B5", "expression": "A5 + 1" },
+    { "address": "C5", "expression": "(1 + 2" },
+    { "address": "D5", "expression": "-5" },
+    { "address": "E5", "expression": "2^(0 - 1)" },
+
+    { "address": "A6", "expression": "B6 + 1" },
+    { "address": "B6", "expression": "A6" },
+    { "address": "C6", "expression": "Z99 + 1" },
+    { "address": "D6", "expression": "foo(1)" },
+    { "address": "E6", "expression": "inc(1, 2)" }
+  ]
+}
